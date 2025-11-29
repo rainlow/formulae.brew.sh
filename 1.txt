@@ -1,0 +1,15 @@
+## tap
+## brew tap Harmonybrew/core
+git clone https://gitcode.com/Harmonybrew/homebrew-core  /data/mac/linuxbrew/.linuxbrew/Homebrew/Library/Taps/harmonybrew/homebrew-core
+
+## gen single json
+tar zxf my-formulae-api.tar.gz && cd my-formulae-api
+brew generate-formula-api
+
+## gen formula.json
+ruby gen-formula-api.rb
+
+## gen formula.jws.json
+export JWS_SIGNING_KEY_ID=homebrew-1
+export JWS_SIGNING_KEY=`cat private_key.pem`
+ruby ./script/sign-json.rb
